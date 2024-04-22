@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class HangMan {
     // Choose a random word from the dictionary
     // Draw the right number of underlines
@@ -11,6 +15,12 @@ public class HangMan {
     private HangManViewer front;
 
     public HangMan() {
-        //word = dictionary.
     }
+
+
+    public void playGame() {
+        Word word1 = new Word();
+    }
+    // Code from SpellingBee
+
 }
