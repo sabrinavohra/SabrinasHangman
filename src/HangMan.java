@@ -13,9 +13,10 @@ public class HangMan {
     // Check if user has won
     private String word;
     private HangManViewer front;
+    private Word theWord;
 
     public HangMan() {
-
+        word = theWord.getWord();
     }
 
 
