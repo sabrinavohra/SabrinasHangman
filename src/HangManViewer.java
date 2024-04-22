@@ -6,7 +6,7 @@ public class HangManViewer extends JFrame {
 
     private HangMan h;
 
-    public HangManViewer() {
+    public HangManViewer(HangMan h) {
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         this.setTitle("Hangman");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -9,6 +9,7 @@ public class Word {
     private String word;
     private String foundLetters;
     private String lostLetters;
+    private String guessedLetters;
 
     public Word() {
         int whichWord = (int)(Math.random() * MAX_WORDS);
@@ -23,15 +24,17 @@ public class Word {
     public int getNumLetters() {
         return numLetters;
     }
-    public boolean isFoundLetter(char a) {
+    // Method should figure out if letter has been found (repeating letters???)
+    public boolean isFoundLetter(int index) {
         for(int i = 0; i < foundLetters.length(); i++) {
-            if(foundLetters.substring(i, i + 1).equals(a)) {
+            if(foundLetters.substring(i, i + 1).equals(index)) {
                 return true;
             }
         }
         return false;
     }
 
+    // Code from SpellingBee
     public static void loadDictionary() {
         Scanner s;
         File dictionaryFile = new File("Resources/dictionary.txt");

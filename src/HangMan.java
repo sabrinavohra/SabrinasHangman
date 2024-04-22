@@ -1,8 +1,10 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class HangMan {
+public class HangMan implements KeyListener{
     // Choose a random word from the dictionary
     // Draw the right number of underlines
     // Let user press a letter for guessing a letter
@@ -17,12 +19,11 @@ public class HangMan {
 
     public HangMan() {
         word = theWord.getWord();
+        front = new HangManViewer(this);
     }
-
 
     public void playGame() {
+        front.repaint();
         Word word1 = new Word();
     }
-    // Code from SpellingBee
-    // hi
 }
