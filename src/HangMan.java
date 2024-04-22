@@ -23,5 +23,5 @@ public class HangMan {
         Word word1 = new Word();
     }
     // Code from SpellingBee
-
+    // hi
 }
