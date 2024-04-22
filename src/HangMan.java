@@ -15,6 +15,7 @@ public class HangMan {
     private HangManViewer front;
 
     public HangMan() {
+
     }
 
 
