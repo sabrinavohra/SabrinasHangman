@@ -29,6 +29,11 @@ public class HangManViewer extends JFrame {
         if(state == 0) {
             g.setColor(Color.BLACK);
             g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+            g.setColor(Color.GREEN);
+            String instructions = "Here's how to play: Guess letters until you're sure of the word! When you know, press" +
+                    " 7, and you will be presented with the ability to guess which word. If you guess a letter or the word " +
+            "wrong, you will gain another part of the skeleton. Don't draw the whole skeleton!";
+            g.drawString(instructions, 100, 100);
         }
         if(state == 1) {
             g.setColor(Color.BLACK);
