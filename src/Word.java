@@ -12,6 +12,7 @@ public class Word {
     private String guessedLetters;
 
     public Word() {
+        Word.loadDictionary();
         int whichWord = (int)(Math.random() * MAX_WORDS);
         word = DICTIONARY[whichWord];
         numLetters = word.length();
