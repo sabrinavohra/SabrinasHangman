@@ -4,6 +4,7 @@ public class HangManViewer extends JFrame {
     public static final int WINDOW_WIDTH = 1000,
             WINDOW_HEIGHT = 900,
             BUFFER_LENGTH = 50,
+            UNDERLINE_LENGTH = 30,
             START_X = 500,
             START_Y = 400;
 
@@ -22,6 +23,8 @@ public class HangManViewer extends JFrame {
 
     public void paint(Graphics g) {
         int state = h.getState();
+        Color c = new Color(38, 29, 3);
+        Color d = new Color(79, 60, 9);
         Font a = new Font("TimesRoman Bold", Font.BOLD, 50);
         if(state == 0) {
             g.setColor(Color.BLACK);
@@ -30,10 +33,14 @@ public class HangManViewer extends JFrame {
         if(state == 1) {
             g.setColor(Color.BLACK);
             g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+            g.setColor(d);
+            g.fillRect(100, 700, 100, 100);
             g.setColor(Color.GREEN);
+            int startX;
             for(int i = 0; i < w.getNumLetters(); i++) {
-                int startX = START_X + (i * START_X) + (i * BUFFER_LENGTH);
-                g.drawLine(startX, START_Y, startX + START_X, START_Y);
+                startX = START_X + (i * START_X) + (i * BUFFER_LENGTH);
+                g.drawLine(startX, START_Y, startX + UNDERLINE_LENGTH, START_Y);
+                startX += UNDERLINE_LENGTH;
             }
         }
         if(state == 2) {

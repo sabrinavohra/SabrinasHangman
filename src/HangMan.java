@@ -13,20 +13,20 @@ public class HangMan implements KeyListener {
     // Add to body, if necessary
     // Check if body is completed
     // Check if user has won
-    private String word;
     private HangManViewer front;
     private Word theWord;
     private int state;
 
     public HangMan() {
-        //word = theWord.getWord();
+        theWord = new Word();
         front = new HangManViewer(this);
     }
 
     public void playGame() {
-        state = 0;
+        state = 1;
         front.repaint();
         Word word1 = new Word();
+        front.repaint();
     }
 
     public Word getTheWord() {
