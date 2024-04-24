@@ -24,7 +24,7 @@ public class HangMan implements KeyListener {
     }
 
     public void playGame() {
-        state = 2;
+        state = 0;
         front.repaint();
         Word word1 = new Word();
     }
