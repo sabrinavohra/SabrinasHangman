@@ -92,7 +92,10 @@ public class HangManViewer extends JFrame {
             // Width and height divided by 4
             g.drawImage(body[0], 100, 150, 85, 100,this);
             g.drawImage(body[1], 100, 250, 70, 112,this);
-            g.drawImage(body[2], 100, 300, 100, 250,this);
+            g.drawImage(body[2], 75, 360, 50, 125,this);
+            g.drawImage(body[3], 140, 360, 58, 125,this);
+            g.drawImage(body[4], 40, 205, 62, 84,this);
+            g.drawImage(body[5], 170, 255, 45, 93,this);
         }
     }
 }
