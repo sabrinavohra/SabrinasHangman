@@ -11,10 +11,12 @@ public class HangManViewer extends JFrame {
     private Word theWord;
     private Image[] body;
     private Image intro;
+    private int part;
 
     public HangManViewer(HangMan h) {
         this.h = h;
         theWord = h.getTheWord();
+        part = 0;
         intro = new ImageIcon("Resources/instructions.png").getImage();
         body = new Image[6];
         // Dimensions of ~ 340 x 400
@@ -79,12 +81,17 @@ public class HangManViewer extends JFrame {
         // Letter has been guessed correctly
         if(state == 4) {
             // Add letters at the index multiplied by start_X to get right coordinate
+            g.drawString(h.getGuess(), START_X + (h.getGuessIndex() * BUFFER_LENGTH), START_Y);
+        }
+        // Letter has been guessed incorrectly
+        if(state == 5) {
         }
         if(state == 7) {
             g.setColor(Color.BLACK);
             g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
             // Width and height divided by 4
             g.drawImage(body[0], 100, 150, 85, 100,this);
+            g.drawImage(body[1], 100, 300, 140, 225,this);
         }
     }
 }

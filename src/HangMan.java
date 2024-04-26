@@ -16,6 +16,7 @@ public class HangMan implements KeyListener {
     private HangManViewer front;
     private Word theWord;
     private int state;
+    private int guessIndex;
     String guess;
 
     public HangMan() {
@@ -24,7 +25,7 @@ public class HangMan implements KeyListener {
     }
 
     public void playGame() {
-        state = 1;
+        state = 7;
         front.repaint();
         Word word1 = new Word();
         front.repaint();
@@ -48,24 +49,24 @@ public class HangMan implements KeyListener {
     public String getGuess() {
         return guess;
     }
+    public int getGuessIndex() {
+        return guessIndex;
+    }
     public boolean isWon() {
         return false;
     }
 
-    public int checkLetter(String letter) {
-        int index;
+    public void checkLetter(String letter) {
         guess = letter;
         // Change getNumLetters() to the number of letters that are missing from the word
         for(int i = 0; i < theWord.getNumLetters(); i ++) {
             if(theWord.getWord().substring(i, i + 1).equals(letter)) {
                 state = 4;
-                index = i;
-                return index;
+                guessIndex = i;
             }
         }
         state = 5;
         front.repaint();
-        return -1;
     }
     @Override
     public void keyTyped(KeyEvent e) {
