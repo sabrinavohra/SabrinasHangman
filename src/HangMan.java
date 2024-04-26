@@ -23,11 +23,20 @@ public class HangMan implements KeyListener {
     }
 
     public void playGame() {
-        state = 0;
+        state = 3;
         front.repaint();
         Word word1 = new Word();
         front.repaint();
+        if(!isWon()) {
+            guess();
+        }
     }
+
+    public boolean guess() {
+        state = 3;
+
+    }
+
 
     public Word getTheWord() {
         return theWord;
@@ -36,9 +45,18 @@ public class HangMan implements KeyListener {
         return state;
     }
 
+    public boolean isWon() {
+        return false;
+    }
     @Override
     public void keyTyped(KeyEvent e) {
-
+        switch(e.getKeyCode())
+        {
+            case KeyEvent.VK_ENTER:
+                state = 3;
+                front.repaint();
+                break;
+            case KeyEvent.VK_A:
     }
 
     @Override

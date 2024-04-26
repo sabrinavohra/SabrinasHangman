@@ -1,8 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 public class HangManViewer extends JFrame {
-    public static final int WINDOW_WIDTH = 1000,
-            WINDOW_HEIGHT = 900,
+    public static final int WINDOW_WIDTH = 1165,
+            WINDOW_HEIGHT = 645,
             BUFFER_LENGTH = 50,
             UNDERLINE_LENGTH = 30,
             START_X = 500,
@@ -11,10 +11,12 @@ public class HangManViewer extends JFrame {
 
     private HangMan h;
     private Word w;
+    private Image intro;
 
     public HangManViewer(HangMan h) {
         this.h = h;
         w = h.getTheWord();
+        intro = new ImageIcon("Resources/instructions.png").getImage();
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         this.setTitle("Hangman");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,14 +28,12 @@ public class HangManViewer extends JFrame {
         Color c = new Color(38, 29, 3);
         Color d = new Color(79, 60, 9);
         Font a = new Font("TimesRoman Bold", Font.BOLD, 50);
+        g.drawImage(intro, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, this);
         if(state == 0) {
             g.setColor(Color.BLACK);
             g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-            g.setColor(Color.GREEN);
-            String instructions = "Here's how to play: Guess letters until you're sure of the word! When you know, press" +
-                    " 7, and you will be presented with the ability to guess which word. If you guess a letter or the word " +
-            "wrong, you will gain another part of the skeleton. Don't draw the whole skeleton!";
-            g.drawString(instructions, 100, 100);
+//            g.setColor(Color.GREEN);
+            g.drawImage(intro, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, this);
         }
         if(state == 1) {
             g.setColor(Color.BLACK);
@@ -54,6 +54,12 @@ public class HangManViewer extends JFrame {
             g.setColor(Color.BLACK);
             g.setFont(a);
             g.drawString("YOU WIN!", WINDOW_WIDTH / 3, WINDOW_HEIGHT / 2);
+        }
+        if(state == 3) {
+            g.setColor(Color.BLACK);
+            g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+            g.setColor(Color.GREEN);
+            g.drawString("Enter your guess: ", WINDOW_WIDTH / 3, WINDOW_HEIGHT / 2);
         }
     }
 }
