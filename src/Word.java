@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Word {
-    private static final int MAX_WORDS = 143091;
+    private static final int MAX_WORDS = 131;
     public static final String[] DICTIONARY = new String[MAX_WORDS];
     private int numLetters;
     private String word;
@@ -38,7 +38,7 @@ public class Word {
     // Code from SpellingBee
     public static void loadDictionary() {
         Scanner s;
-        File dictionaryFile = new File("Resources/dictionary.txt");
+        File dictionaryFile = new File("Resources/myDictionary.txt");
         try {
             s = new Scanner(dictionaryFile);
         } catch (FileNotFoundException e) {

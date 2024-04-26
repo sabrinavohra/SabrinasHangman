@@ -4,19 +4,17 @@ public class HangManViewer extends JFrame {
     public static final int WINDOW_WIDTH = 1165,
             WINDOW_HEIGHT = 645,
             BUFFER_LENGTH = 50,
-            UNDERLINE_LENGTH = 30,
+            UNDERLINE_LENGTH = 20,
             START_X = 500,
             START_Y = 400;
-
-
     private HangMan h;
-    private Word w;
+    private Word theWord;
     private Image[] body;
     private Image intro;
 
     public HangManViewer(HangMan h) {
         this.h = h;
-        w = h.getTheWord();
+        theWord = h.getTheWord();
         intro = new ImageIcon("Resources/instructions.png").getImage();
         body = new Image[6];
         // Dimensions of ~ 340 x 400
@@ -32,7 +30,7 @@ public class HangManViewer extends JFrame {
         // Dimensions 180 x 370
         body[5] = new ImageIcon("Resources/rightArm.png").getImage();
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-        this.setTitle("Hangman");
+        this.setTitle("Halloween Hangman");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
@@ -42,11 +40,9 @@ public class HangManViewer extends JFrame {
         Color c = new Color(38, 29, 3);
         Color d = new Color(79, 60, 9);
         Font a = new Font("TimesRoman Bold", Font.BOLD, 50);
+        Font b = new Font("TimesRoman Bold", Font.BOLD, 30);
         g.drawImage(intro, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, this);
         if(state == 0) {
-            g.setColor(Color.BLACK);
-            g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-//            g.setColor(Color.GREEN);
             g.drawImage(intro, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, this);
         }
         if(state == 1) {
@@ -55,10 +51,15 @@ public class HangManViewer extends JFrame {
             g.setColor(d);
             g.fillRect(100, 700, 100, 100);
             g.setColor(Color.GREEN);
+            g.setFont(b);
             int startX;
-            for(int i = 0; i < w.getNumLetters(); i++) {
-                startX = START_X + (i * START_X) + (i * BUFFER_LENGTH);
+            g.drawString(theWord.getWord(), 50, 50);
+            for(int i = 0; i < theWord.getNumLetters(); i++) {
+                //startX = START_X + (i * START_X) + (i * BUFFER_LENGTH);
+                startX = START_X + (i * BUFFER_LENGTH);
                 g.drawLine(startX, START_Y, startX + UNDERLINE_LENGTH, START_Y);
+                g.setColor(Color.BLACK);
+                g.drawString(theWord.getWord().substring(i, i + 1), startX, START_Y);
                 startX += UNDERLINE_LENGTH;
             }
         }
@@ -74,6 +75,16 @@ public class HangManViewer extends JFrame {
             g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
             g.setColor(Color.GREEN);
             g.drawString("Enter your guess: ", WINDOW_WIDTH / 3, WINDOW_HEIGHT / 2);
+        }
+        // Letter has been guessed correctly
+        if(state == 4) {
+            // Add letters at the index multiplied by start_X to get right coordinate
+        }
+        if(state == 7) {
+            g.setColor(Color.BLACK);
+            g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+            // Width and height divided by 4
+            g.drawImage(body[0], 100, 150, 85, 100,this);
         }
     }
 }
