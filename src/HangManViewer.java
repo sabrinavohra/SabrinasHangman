@@ -11,12 +11,26 @@ public class HangManViewer extends JFrame {
 
     private HangMan h;
     private Word w;
+    private Image[] body;
     private Image intro;
 
     public HangManViewer(HangMan h) {
         this.h = h;
         w = h.getTheWord();
         intro = new ImageIcon("Resources/instructions.png").getImage();
+        body = new Image[6];
+        // Dimensions of ~ 340 x 400
+        body[0] = new ImageIcon("Resources/head.png").getImage();
+        // Dimensions of ~ 280 x 450
+        body[1] = new ImageIcon("Resources/torso.png").getImage();
+        // Dimensions 200 x 500
+        body[2] = new ImageIcon("Resources/leftLeg.png").getImage();
+        // Dimensions 230 x 500
+        body[3] = new ImageIcon("Resources/rightLeg.png").getImage();
+        // Dimensions 310 x 420
+        body[4] = new ImageIcon("Resources/leftArm.png").getImage();
+        // Dimensions 180 x 370
+        body[5] = new ImageIcon("Resources/rightArm.png").getImage();
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         this.setTitle("Hangman");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
