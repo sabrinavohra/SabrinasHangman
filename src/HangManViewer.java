@@ -18,7 +18,7 @@ public class HangManViewer extends JFrame {
         theWord = h.getTheWord();
         part = 0;
         intro = new ImageIcon("Resources/instructions.png").getImage();
-        body = new Image[6];
+        body = new Image[7];
         // Dimensions of ~ 340 x 400
         body[0] = new ImageIcon("Resources/head.png").getImage();
         // Dimensions of ~ 280 x 450
