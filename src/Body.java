@@ -1,5 +1,49 @@
-//import java.awt.*;
-//
-//public class Body {
-//    private Image[] body;
-//}
+import javax.swing.*;
+import java.awt.*;
+
+public class Body {
+    private int[] zero;
+    private int[] one;
+    private int[] two;
+    private int[] three;
+    private int[] four;
+    private int[] five;
+    private int[] six;
+    public static final int HEAD_X = 100,
+    HEAD_Y = 150,
+    HEAD_WIDTH = 85,
+    HEAD_HEIGHT = 100,
+    TORSO_X = 100,
+    TORSO_Y = 250,
+    TORSO_WIDTH = 70,
+    TORSO_HEIGHT = 112,
+    LEFT_LEG_X = 75,
+    LEFT_LEG_Y = 360,
+    LEFT_LEG_WIDTH = 50,
+    LEFT_LEG_HEIGHT = 125,
+    RIGHT_LEG_X = 140,
+    private Image[] body;
+    private int current;
+
+    public Body() {
+        current = 0;
+        body = new Image[7];
+        // Dimensions of ~ 340 x 400
+        body[0] = new ImageIcon("Resources/head.png").getImage();
+        // Dimensions of ~ 280 x 450
+        body[1] = new ImageIcon("Resources/torso.png").getImage();
+        // Dimensions 200 x 500
+        body[2] = new ImageIcon("Resources/leftLeg.png").getImage();
+        // Dimensions 230 x 500
+        body[3] = new ImageIcon("Resources/rightLeg.png").getImage();
+        // Dimensions 310 x 420
+        body[4] = new ImageIcon("Resources/leftArm.png").getImage();
+        // Dimensions 180 x 370
+        body[5] = new ImageIcon("Resources/rightArm.png").getImage();
+    }
+
+    public void drawBody(Graphics g) {
+        g.drawImage(body[current], )
+    }
+
+}
