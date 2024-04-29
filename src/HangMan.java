@@ -17,15 +17,18 @@ public class HangMan implements KeyListener {
     private Word theWord;
     private int state;
     private int guessIndex;
+    private int numLetters;
     String guess;
 
     public HangMan() {
+        state = 0;
         theWord = new Word();
         front = new HangManViewer(this);
+        this.numLetters = theWord.getNumLetters();
     }
 
     public void playGame() {
-        state = 7;
+        state = 1;
         front.repaint();
         Word word1 = new Word();
         front.repaint();
@@ -39,7 +42,6 @@ public class HangMan implements KeyListener {
         return false;
     }
 
-
     public Word getTheWord() {
         return theWord;
     }
@@ -52,6 +54,9 @@ public class HangMan implements KeyListener {
     public int getGuessIndex() {
         return guessIndex;
     }
+    public HangManViewer getFront() {
+        return front;
+    }
     public boolean isWon() {
         return false;
     }
@@ -63,6 +68,8 @@ public class HangMan implements KeyListener {
             if(theWord.getWord().substring(i, i + 1).equals(letter)) {
                 state = 4;
                 guessIndex = i;
+                this.numLetters--;
+                front.repaint();
             }
         }
         state = 5;

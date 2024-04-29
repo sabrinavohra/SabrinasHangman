@@ -12,8 +12,10 @@ public class HangManViewer extends JFrame {
     private Image[] body;
     private Image intro;
     private int part;
+    private Body toDraw;
 
     public HangManViewer(HangMan h) {
+        toDraw = new Body();
         this.h = h;
         theWord = h.getTheWord();
         part = 0;
@@ -85,6 +87,7 @@ public class HangManViewer extends JFrame {
         }
         // Letter has been guessed incorrectly
         if(state == 5) {
+            toDraw.drawBody(g);
         }
         if(state == 7) {
             g.setColor(Color.BLACK);
