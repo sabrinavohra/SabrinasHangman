@@ -16,6 +16,8 @@ public class HangMan implements KeyListener {
     // Check if user has won
     private HangManViewer front;
     private Word theWord;
+    private String display;
+    private String leftover;
     private int state;
     private int guessIndex;
     private int numLetters;
