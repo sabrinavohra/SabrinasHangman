@@ -36,7 +36,7 @@ public class Word {
         return false;
     }
 
-    // Code from SpellingBee
+    // Code from SpellingBee, but with different dictionary
     public static void loadDictionary() {
         Scanner s;
         File dictionaryFile = new File("Resources/myDictionary.txt");

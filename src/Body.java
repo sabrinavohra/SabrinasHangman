@@ -3,13 +3,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Body {
-    private int[] zero;
-    private int[] one;
-    private int[] two;
-    private int[] three;
-    private int[] four;
-    private int[] five;
-    private int[] six;
     public static final int HEAD_X = 100,
     HEAD_Y = 150,
     HEAD_WIDTH = 85,
