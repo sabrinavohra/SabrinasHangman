@@ -1,6 +1,8 @@
 // Sabrina Vohra
 import javax.swing.*;
 import java.awt.*;
+import java.sql.SQLOutput;
+
 public class HangManViewer extends JFrame {
     public static final int WINDOW_WIDTH = 1165,
             WINDOW_HEIGHT = 645,
@@ -16,11 +18,11 @@ public class HangManViewer extends JFrame {
     private Body toDraw;
 
     public HangManViewer(HangMan h) {
-        toDraw = new Body();
+        toDraw = new Body(h);
         this.h = h;
         theWord = h.getTheWord();
         part = 0;
-        intro = new ImageIcon("Resources/instructions.png").getImage();
+        intro = new ImageIcon("Resources/intro.png").getImage();
         body = new Image[7];
         // Dimensions of ~ 340 x 400
         body[0] = new ImageIcon("Resources/head.png").getImage();
@@ -63,8 +65,8 @@ public class HangManViewer extends JFrame {
                 //startX = START_X + (i * START_X) + (i * BUFFER_LENGTH);
                 startX = START_X + (i * BUFFER_LENGTH);
                 g.drawLine(startX, START_Y, startX + UNDERLINE_LENGTH, START_Y);
-                g.setColor(Color.BLACK);
-                g.drawString(theWord.getWord().substring(i, i + 1), startX, START_Y);
+//                g.setColor(Color.BLACK);
+//                g.drawString(theWord.getWord().substring(i, i + 1), startX, START_Y);
                 startX += UNDERLINE_LENGTH;
             }
         }
@@ -84,11 +86,17 @@ public class HangManViewer extends JFrame {
         // Letter has been guessed correctly
         if(state == 4) {
             // Add letters at the index multiplied by start_X to get right coordinate
+            System.out.println("state = 4");
             g.drawString(h.getGuess(), START_X + (h.getGuessIndex() * BUFFER_LENGTH), START_Y);
         }
         // Letter has been guessed incorrectly
         if(state == 5) {
+            System.out.println("state = 5");
             toDraw.drawBody(g);
+        }
+        if(state == 8) {
+            g.setColor(Color.WHITE);
+            g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
         }
 //        if(state == 7) {
 //            g.setColor(Color.BLACK);

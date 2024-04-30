@@ -19,9 +19,7 @@ public class Body {
     private Image[] body;
     private int current;
     private HangManViewer front;
-    private HangMan h;
-    public Body() {
-        h = new HangMan();
+    public Body(HangMan h) {
         front = h.getFront();
         current = 0;
         body = new Image[7];
@@ -42,32 +40,28 @@ public class Body {
     public void drawBody(Graphics g) {
         if (current == 0) {
             g.drawImage(body[current], HEAD_X, HEAD_Y, HEAD_WIDTH, HEAD_HEIGHT, front);
-            current++;
         }
         if(current == 1) {
             g.drawImage(body[current], TORSO_X, TORSO_Y, TORSO_WIDTH, TORSO_HEIGHT, front);
-            current++;
         }
         if(current == 2) {
             g.drawImage(body[current], LEFT_LEG_X, LEFT_LEG_Y, LEFT_LEG_WIDTH, LEFT_LEG_HEIGHT, front);
-            current++;
         }
         if(current == 3) {
             g.drawImage(body[current], 140, 360,58, 125, front);
-            current++;
         }
         if (current == 4) {
             g.drawImage(body[current], 40, 205, 62, 84, front);
-            current++;
         }
         if(current == 5) {
             g.drawImage(body[current], 170, 255, 45, 93, front);
-            current++;
         }
-        if(current == 6) {
-            g.setColor(Color.RED);
-            g.fillRect(0, 0, front.getWidth(), front.getHeight());
-            g.drawString("YOU LOST!!!!!!!", 500, 400);
-        }
+        current++;
+//        if(current == 6) {
+//            g.setColor(Color.RED);
+//            g.fillRect(0, 0, front.getWidth(), front.getHeight());
+//            // Call isWon() or change instance variable
+//            g.drawString("YOU LOST!!!!!!!", 500, 400);
+//        }
     }
 }

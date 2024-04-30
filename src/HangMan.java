@@ -19,11 +19,13 @@ public class HangMan implements KeyListener {
     private int state;
     private int guessIndex;
     private int numLetters;
+    private boolean won;
     String guess;
 
     public HangMan() {
         theWord = new Word();
         front = new HangManViewer(this);
+        front.addKeyListener(this);
         this.numLetters = theWord.getNumLetters();
         state = 0;
         front.repaint();
@@ -55,6 +57,7 @@ public class HangMan implements KeyListener {
     }
 
     public void checkLetter(String letter) {
+        System.out.println("hi");
         guess = letter;
         // Change getNumLetters() to the number of letters that are missing from the word
         for(int i = 0; i < theWord.getNumLetters(); i ++) {
@@ -70,26 +73,38 @@ public class HangMan implements KeyListener {
     }
     @Override
     public void keyTyped(KeyEvent e) {
-        switch(e.getKeyCode()) {
-            case KeyEvent.VK_ENTER:
-                state = 1;
-                front.repaint();
-                break;
-            case KeyEvent.KEY_TYPED:
-                String letter = KeyEvent.getKeyText(KeyEvent.KEY_TYPED);
-                checkLetter(letter);
-                break;
-                // Research how to get Java letter from key code without finding every single one
-                // Method that takes in char for which letter entered
-                // Check if char is in mystery word
-                // If it is: update
-                // Keep track of mystery word and display string
-        }
+        // Research how to get Java letter from key code without finding every single one
+        // Method that takes in char for which letter entered
+        // Check if char is in mystery word
+        // If it is: update
+        // Keep track of mystery word and display string
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_ENTER:
+                state = 1;
+                front.repaint();
+                break;
+            case KeyEvent.VK_A:
+                state = 5;
+                front.repaint();
+                break;
+            case KeyEvent.VK_B:
+                state = 8;
+                front.repaint();
+                break;
+            default:
+                System.out.println("whoa");
+                Character c = e.getKeyChar();
+                String letter = String.valueOf(c);
+                //String letter = KeyEvent.getKeyText(e.getKeyCode());
+                System.out.println(letter);
+                checkLetter(letter);
+                front.repaint();
+                break;
+        }
     }
 
     @Override
@@ -101,6 +116,5 @@ public class HangMan implements KeyListener {
     {
         // Creates and plays Game
         HangMan newH = new HangMan();
-        newH.playGame();
     }
 }
