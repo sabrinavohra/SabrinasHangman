@@ -1,3 +1,4 @@
+// Sabrina Vohra
 import javax.swing.*;
 import java.awt.*;
 public class HangManViewer extends JFrame {
