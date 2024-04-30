@@ -77,5 +77,4 @@ public class Body {
             g.drawString("YOU LOST!!!!!!!", 500, 400);
         }
     }
-
 }

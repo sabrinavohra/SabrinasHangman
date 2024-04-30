@@ -90,16 +90,16 @@ public class HangManViewer extends JFrame {
         if(state == 5) {
             toDraw.drawBody(g);
         }
-        if(state == 7) {
-            g.setColor(Color.BLACK);
-            g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-            // Width and height divided by 4
-            g.drawImage(body[0], 100, 150, 85, 100,this);
-            g.drawImage(body[1], 100, 250, 70, 112,this);
-            g.drawImage(body[2], 75, 360, 50, 125,this);
-            g.drawImage(body[3], 140, 360, 58, 125,this);
-            g.drawImage(body[4], 40, 205, 62, 84,this);
-            g.drawImage(body[5], 170, 255, 45, 93,this);
-        }
+//        if(state == 7) {
+//            g.setColor(Color.BLACK);
+//            g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+//            // Width and height divided by 4
+//            g.drawImage(body[0], 100, 150, 85, 100,this);
+//            g.drawImage(body[1], 100, 250, 70, 112,this);
+//            g.drawImage(body[2], 75, 360, 50, 125,this);
+//            g.drawImage(body[3], 140, 360, 58, 125,this);
+//            g.drawImage(body[4], 40, 205, 62, 84,this);
+//            g.drawImage(body[5], 170, 255, 45, 93,this);
+//        }
     }
 }

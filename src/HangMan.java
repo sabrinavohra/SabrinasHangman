@@ -22,25 +22,17 @@ public class HangMan implements KeyListener {
     String guess;
 
     public HangMan() {
-        state = 0;
         theWord = new Word();
         front = new HangManViewer(this);
         this.numLetters = theWord.getNumLetters();
+        state = 0;
+        front.repaint();
     }
 
     public void playGame() {
         state = 1;
         front.repaint();
         Word word1 = new Word();
-        front.repaint();
-        if(!isWon()) {
-            guess();
-        }
-    }
-
-    public boolean guess() {
-//        state = 3;
-        return false;
     }
 
     public Word getTheWord() {
@@ -59,7 +51,7 @@ public class HangMan implements KeyListener {
         return front;
     }
     public boolean isWon() {
-        return false;
+        return numLetters == 0;
     }
 
     public void checkLetter(String letter) {
@@ -80,13 +72,13 @@ public class HangMan implements KeyListener {
     public void keyTyped(KeyEvent e) {
         switch(e.getKeyCode()) {
             case KeyEvent.VK_ENTER:
-                playGame();
-                guess();
+                state = 1;
                 front.repaint();
                 break;
             case KeyEvent.KEY_TYPED:
                 String letter = KeyEvent.getKeyText(KeyEvent.KEY_TYPED);
                 checkLetter(letter);
+                break;
                 // Research how to get Java letter from key code without finding every single one
                 // Method that takes in char for which letter entered
                 // Check if char is in mystery word
