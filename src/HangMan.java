@@ -87,14 +87,14 @@ public class HangMan implements KeyListener {
                 state = 1;
                 front.repaint();
                 break;
-            case KeyEvent.VK_A:
-                state = 5;
-                front.repaint();
-                break;
-            case KeyEvent.VK_B:
-                state = 8;
-                front.repaint();
-                break;
+//            case KeyEvent.VK_A:
+//                state = 5;
+//                front.repaint();
+//                break;
+//            case KeyEvent.VK_B:
+//                state = 8;
+//                front.repaint();
+//                break;
             default:
                 System.out.println("whoa");
                 Character c = e.getKeyChar();
