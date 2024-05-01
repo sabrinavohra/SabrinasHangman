@@ -54,28 +54,32 @@ public class HangMan implements KeyListener {
     public HangManViewer getFront() {
         return front;
     }
-    public boolean isWon() {
-        return numLetters == 0;
+    public void isWon() {
+        if(numLetters == 0) {
+            state = 2;
+            front.repaint();
+        }
     }
 
     public void checkLetter(String letter) {
+        boolean in = false;
         guess = letter;
         // Change getNumLetters() to the number of letters that are missing from the word
         for(int i = 0; i < theWord.getNumLetters(); i ++) {
-            System.out.print("hello");
             String currentLetter = theWord.getWord().substring(i, i+1);
-            System.out.println(currentLetter);
-            System.out.println(currentLetter + "    " + guess);
             if(currentLetter.equals(guess)) {
                 state = 4;
-                front.repaint();
+                in = true;
                 guessIndex = i;
                 this.numLetters--;
-                return;
+                front.repaint();
+                isWon();
             }
         }
-        state = 5;
-        front.repaint();
+        if(!in) {
+            state = 5;
+            front.repaint();
+        }
     }
     @Override
     public void keyTyped(KeyEvent e) {
@@ -102,11 +106,8 @@ public class HangMan implements KeyListener {
 //                front.repaint();
 //                break;
             default:
-                System.out.println("whoa");
                 Character c = e.getKeyChar();
                 String letter = String.valueOf(c);
-                //String letter = KeyEvent.getKeyText(e.getKeyCode());
-                System.out.println(letter);
                 checkLetter(letter);
                 front.repaint();
                 break;

@@ -64,8 +64,6 @@ public class HangManViewer extends JFrame {
                 //startX = START_X + (i * START_X) + (i * BUFFER_LENGTH);
                 startX = START_X + (i * BUFFER_LENGTH);
                 g.drawLine(startX, START_Y, startX + UNDERLINE_LENGTH, START_Y);
-//                g.setColor(Color.BLACK);
-//                g.drawString(theWord.getWord().substring(i, i + 1), startX, START_Y);
                 startX += UNDERLINE_LENGTH;
             }
         }
