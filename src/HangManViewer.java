@@ -48,7 +48,6 @@ public class HangManViewer extends JFrame {
         Color d = new Color(79, 60, 9);
         Font a = new Font("TimesRoman Bold", Font.BOLD, 50);
         Font b = new Font("TimesRoman Bold", Font.BOLD, 30);
-        g.drawImage(intro, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, this);
         if(state == 0) {
             g.drawImage(intro, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, this);
         }
@@ -86,7 +85,8 @@ public class HangManViewer extends JFrame {
         // Letter has been guessed correctly
         if(state == 4) {
             // Add letters at the index multiplied by start_X to get right coordinate
-            System.out.println("state = 4");
+            g.setColor(Color.ORANGE);
+            g.setFont(b);
             g.drawString(h.getGuess(), START_X + (h.getGuessIndex() * BUFFER_LENGTH), START_Y);
         }
         // Letter has been guessed incorrectly

@@ -57,11 +57,11 @@ public class Body {
             g.drawImage(body[current], 170, 255, 45, 93, front);
         }
         current++;
-//        if(current == 6) {
-//            g.setColor(Color.RED);
-//            g.fillRect(0, 0, front.getWidth(), front.getHeight());
-//            // Call isWon() or change instance variable
-//            g.drawString("YOU LOST!!!!!!!", 500, 400);
-//        }
+        if(current == 6) {
+            g.setColor(Color.DARK_GRAY);
+            g.fillRect(0, 0, front.getWidth(), front.getHeight());
+            // Call isWon() or change instance variable
+            g.drawString("YOU LOST!!!!!!!", 500, 400);
+        }
     }
 }

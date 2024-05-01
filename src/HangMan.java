@@ -59,17 +59,19 @@ public class HangMan implements KeyListener {
     }
 
     public void checkLetter(String letter) {
-        System.out.println("hi");
         guess = letter;
         // Change getNumLetters() to the number of letters that are missing from the word
         for(int i = 0; i < theWord.getNumLetters(); i ++) {
-            System.out.println("hello");
-            String currentWord = theWord.getWord().substring(i, i+1);
-            if(currentWord.equals(letter)) {
+            System.out.print("hello");
+            String currentLetter = theWord.getWord().substring(i, i+1);
+            System.out.println(currentLetter);
+            System.out.println(currentLetter + "    " + guess);
+            if(currentLetter.equals(guess)) {
                 state = 4;
                 front.repaint();
                 guessIndex = i;
                 this.numLetters--;
+                return;
             }
         }
         state = 5;
