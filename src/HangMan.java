@@ -72,8 +72,13 @@ public class HangMan implements KeyListener {
 
     public void checkLetter(String letter) {
         boolean in = false;
-        guess = letter;
+        for(int i = 0; i < guessed.size(); i++) {
+            if(letter.equals(guessed.get(i))) {
+                break;
+            }
+        }
         guessed.add(letter);
+        guess = letter;
         // Change getNumLetters() to the number of letters that are missing from the word
         for(int i = 0; i < theWord.getNumLetters(); i ++) {
             String currentLetter = theWord.getWord().substring(i, i+1);
