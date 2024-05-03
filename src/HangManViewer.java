@@ -44,10 +44,11 @@ public class HangManViewer extends JFrame {
 
     public void paint(Graphics g) {
         int state = h.getState();
-        Color c = new Color(38, 29, 3);
+        Color c = new Color(98, 57, 115);
         Color d = new Color(79, 60, 9);
         Font a = new Font("TimesRoman Bold", Font.BOLD, 50);
         Font b = new Font("TimesRoman Bold", Font.BOLD, 30);
+        g.setFont(b);
         if(state == 0) {
             g.drawImage(intro, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, this);
         }
@@ -57,7 +58,7 @@ public class HangManViewer extends JFrame {
             g.setColor(d);
             g.fillRect(100, 700, 100, 100);
             g.setColor(Color.GREEN);
-            g.setFont(b);
+            //g.setFont(b);
             int startX;
             //g.drawString(theWord.getWord(), 50, 50);
             for(int i = 0; i < theWord.getNumLetters(); i++) {
@@ -66,6 +67,8 @@ public class HangManViewer extends JFrame {
                 g.drawLine(startX, START_Y, startX + UNDERLINE_LENGTH, START_Y);
                 startX += UNDERLINE_LENGTH;
             }
+            g.setColor(c);
+            g.fillRect(50, 500, 300, 100);
         }
         if(state == 2) {
             g.setColor(Color.GREEN);
@@ -73,6 +76,8 @@ public class HangManViewer extends JFrame {
             g.setColor(Color.BLACK);
             g.setFont(a);
             g.drawString("YOU WIN!", WINDOW_WIDTH / 3, WINDOW_HEIGHT / 2);
+            g.setColor(Color.WHITE);
+            g.drawString("the word was: " + theWord.getWord(),  WINDOW_WIDTH / 6,  WINDOW_HEIGHT / 3);
         }
         if(state == 3) {
             g.setColor(Color.BLACK);
@@ -84,15 +89,16 @@ public class HangManViewer extends JFrame {
         if(state == 4) {
             // Add letters at the index multiplied by start_X to get right coordinate
             g.setColor(Color.ORANGE);
-            g.setFont(b);
+            //g.setFont(b);
             g.drawString(h.getGuess(), START_X + (h.getGuessIndex() * BUFFER_LENGTH), START_Y);
         }
         // Letter has been guessed incorrectly
         if(state == 5) {
             System.out.println("state = 5");
             toDraw.drawBody(g);
-            g.setColor(Color.);
-            g.drawString(h.getGuess(), (int)(Math.random() * 100), (int)(Math.random() - 700 * 200));
+            g.setColor(Color.GREEN);
+            g.drawString(h.getWrongGuesses(), 75, 550);
+            //g.drawString(h.getGuess(), 100, 400);
         }
         if(state == 8) {
             g.setColor(Color.WHITE);

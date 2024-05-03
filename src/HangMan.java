@@ -22,6 +22,7 @@ public class HangMan implements KeyListener {
     private int guessIndex;
     private int numLetters;
     private boolean won;
+    private String wrongGuesses;
     String guess;
 
     public HangMan() {
@@ -31,6 +32,7 @@ public class HangMan implements KeyListener {
         this.numLetters = theWord.getNumLetters();
         state = 0;
         guessed = new ArrayList<String>();
+        wrongGuesses = "";
         front.repaint();
     }
 
@@ -54,6 +56,12 @@ public class HangMan implements KeyListener {
     }
     public HangManViewer getFront() {
         return front;
+    }
+    public ArrayList<String> getGuessed () {
+        return guessed;
+    }
+    public String getWrongGuesses() {
+        return wrongGuesses;
     }
     public void isWon() {
         if(numLetters == 0) {
@@ -80,6 +88,7 @@ public class HangMan implements KeyListener {
         }
         if(!in) {
             state = 5;
+            wrongGuesses += "  " + letter;
             front.repaint();
         }
     }
