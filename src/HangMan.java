@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class HangMan implements KeyListener {
     // Choose a random word from the dictionary
@@ -15,9 +16,8 @@ public class HangMan implements KeyListener {
     // Check if body is completed
     // Check if user has won
     private HangManViewer front;
+    private ArrayList<String> guessed;
     private Word theWord;
-    private String display;
-    private String leftover;
     private int state;
     private int guessIndex;
     private int numLetters;
@@ -30,6 +30,7 @@ public class HangMan implements KeyListener {
         front.addKeyListener(this);
         this.numLetters = theWord.getNumLetters();
         state = 0;
+        guessed = new ArrayList<String>();
         front.repaint();
     }
 
@@ -64,6 +65,7 @@ public class HangMan implements KeyListener {
     public void checkLetter(String letter) {
         boolean in = false;
         guess = letter;
+        guessed.add(letter);
         // Change getNumLetters() to the number of letters that are missing from the word
         for(int i = 0; i < theWord.getNumLetters(); i ++) {
             String currentLetter = theWord.getWord().substring(i, i+1);

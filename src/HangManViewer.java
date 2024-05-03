@@ -91,6 +91,8 @@ public class HangManViewer extends JFrame {
         if(state == 5) {
             System.out.println("state = 5");
             toDraw.drawBody(g);
+            g.setColor(Color.);
+            g.drawString(h.getGuess(), (int)(Math.random() * 100), (int)(Math.random() - 700 * 200));
         }
         if(state == 8) {
             g.setColor(Color.WHITE);
