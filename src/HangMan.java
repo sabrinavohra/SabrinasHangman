@@ -94,7 +94,7 @@ public class HangMan implements KeyListener {
             guessed.add(letter);
             for(int i = 0; i < theWord.getNumLetters(); i++) {
                 if(theWord.getWord().substring(i, i+1).equals(letter)) {
-                    displayString = displayString.substring(0, i) + letter + "  " + displayString.substring(i+1);
+                    displayString = displayString.substring(0, i) + letter + displayString.substring(i+1);
                     state = 4;
                     in = true;
                     this.numLetters--;
