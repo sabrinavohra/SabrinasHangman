@@ -21,6 +21,7 @@ public class HangMan implements KeyListener {
     private int state;
     private int guessIndex;
     private int numLetters;
+    private String displayString;
     private boolean won;
     private String wrongGuesses;
     String guess;
@@ -33,6 +34,10 @@ public class HangMan implements KeyListener {
         state = 0;
         guessed = new ArrayList<String>();
         wrongGuesses = "";
+        displayString = "";
+        for(int i = 0; i < theWord.getWord().length(); i++) {
+            displayString += "_  ";
+        }
         front.repaint();
     }
 
@@ -63,6 +68,10 @@ public class HangMan implements KeyListener {
     public String getWrongGuesses() {
         return wrongGuesses;
     }
+
+    public String getDisplayString() {
+        return displayString;
+    }
     public void isWon() {
         if(numLetters == 0) {
             state = 2;
@@ -70,33 +79,61 @@ public class HangMan implements KeyListener {
         }
     }
 
+    public boolean checkGuessedLetter() {
+        for(int i = 0; i < guessed.size(); i++) {
+            if(guess.equals(guessed.get(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
     public void checkLetter(String letter) {
         boolean in = false;
-        for(int i = 0; i < guessed.size(); i++) {
-            if(letter.equals(guessed.get(i))) {
-                break;
-            }
-        }
-        guessed.add(letter);
         guess = letter;
-        // Change getNumLetters() to the number of letters that are missing from the word
-        for(int i = 0; i < theWord.getNumLetters(); i ++) {
-            String currentLetter = theWord.getWord().substring(i, i+1);
-            if(currentLetter.equals(guess)) {
-                state = 4;
-                in = true;
-                guessIndex = i;
-                this.numLetters--;
-                front.repaint();
-                isWon();
+        if(checkGuessedLetter()) {
+            guessed.add(letter);
+            for(int i = 0; i < theWord.getNumLetters(); i++) {
+                if(theWord.getWord().substring(i, i+1).equals(letter)) {
+                    displayString = displayString.substring(0, i) + letter + "  " + displayString.substring(i+1);
+                    state = 4;
+                    in = true;
+                    this.numLetters--;
+                }
             }
-        }
-        if(!in) {
-            state = 5;
-            wrongGuesses += "  " + letter;
+            if(!in) {
+                state = 5;
+                wrongGuesses += "    " + letter;
+            }
             front.repaint();
         }
     }
+//    public void checkLetter(String letter) {
+//        boolean in = false;
+//        for(int i = 0; i < guessed.size(); i++) {
+//            if(letter.equals(guessed.get(i))) {
+//                break;
+//            }
+//        }
+//        guessed.add(letter);
+//        guess = letter;
+//        // Change getNumLetters() to the number of letters that are missing from the word
+//        for(int i = 0; i < theWord.getNumLetters(); i ++) {
+//            String currentLetter = theWord.getWord().substring(i, i+1);
+//            if(currentLetter.equals(guess)) {
+//                state = 4;
+//                in = true;
+//                guessIndex = i;
+//                this.numLetters--;
+//                front.repaint();
+//                isWon();
+//            }
+//        }
+//        if(!in) {
+//            state = 5;
+//            wrongGuesses += "  " + letter;
+//            front.repaint();
+//        }
+//    }
     @Override
     public void keyTyped(KeyEvent e) {
         // Research how to get Java letter from key code without finding every single one
