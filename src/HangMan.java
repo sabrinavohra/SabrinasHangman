@@ -87,6 +87,7 @@ public class HangMan implements KeyListener {
         }
         return true;
     }
+    // Double letters need to be implemented still to print correctly
     public void checkLetter(String letter) {
         boolean in = false;
         guess = letter;
