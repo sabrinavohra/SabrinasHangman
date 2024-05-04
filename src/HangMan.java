@@ -25,6 +25,7 @@ public class HangMan implements KeyListener {
     private boolean won;
     private String wrongGuesses;
     String guess;
+    private int where;
 
     public HangMan() {
         theWord = new Word();
@@ -35,6 +36,7 @@ public class HangMan implements KeyListener {
         guessed = new ArrayList<String>();
         wrongGuesses = "";
         displayString = "";
+        where = 0;
         for(int i = 0; i < theWord.getWord().length(); i++) {
             displayString += "_  ";
         }
@@ -72,6 +74,9 @@ public class HangMan implements KeyListener {
     public String getDisplayString() {
         return displayString;
     }
+    public int getWhere() {
+        return where;
+    }
     public void isWon() {
         if(numLetters == 0) {
             state = 2;
@@ -95,10 +100,16 @@ public class HangMan implements KeyListener {
             guessed.add(letter);
             for(int i = 0; i < theWord.getNumLetters(); i++) {
                 if(theWord.getWord().substring(i, i+1).equals(letter)) {
-                    displayString = displayString.substring(0, i - 1) + letter + displayString.substring(i+1);
+                    if(i == 0) {
+                        displayString = letter + displayString.substring(i+1);
+                    }
+                    else {
+                        displayString = displayString.substring(0, i) + letter + "  " + displayString.substring(i+1);
+                    }
                     state = 4;
                     in = true;
                     this.numLetters--;
+                    where = i;
                 }
             }
             if(!in) {

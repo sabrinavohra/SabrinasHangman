@@ -57,15 +57,16 @@ public class HangManViewer extends JFrame {
             g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
             g.setColor(d);
             g.fillRect(100, 700, 100, 100);
-            g.setColor(Color.GREEN);
+            //g.setColor(Color.GREEN);
+            g.setColor(Color.ORANGE);
             //g.setFont(b);
             int startX;
             g.drawString(theWord.getWord(), 50, 50);
             for(int i = 0; i < theWord.getNumLetters(); i++) {
                 //startX = START_X + (i * START_X) + (i * BUFFER_LENGTH);
-                g.drawString(h.getDisplayString(), START_X, START_Y);
+                //g.drawString(h.getDisplayString(), START_X, START_Y);
                 startX = START_X + (i * BUFFER_LENGTH);
-                //g.drawLine(startX, START_Y, startX + UNDERLINE_LENGTH, START_Y);
+                g.drawLine(startX, START_Y, startX + UNDERLINE_LENGTH, START_Y);
                 startX += UNDERLINE_LENGTH;
             }
             g.setColor(c);
