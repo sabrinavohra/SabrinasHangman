@@ -104,7 +104,8 @@ public class HangMan implements KeyListener {
                         displayString = letter + displayString.substring(i+1);
                     }
                     else {
-                        displayString = displayString.substring(0, i) + letter + displayString.substring(i);
+                        displayString = displayString.substring(0, i) + letter + displayString.substring(i + 1);
+                        System.out.println(displayString);
                     }
                     state = 4;
                     in = true;
