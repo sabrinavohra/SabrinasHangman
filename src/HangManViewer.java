@@ -90,6 +90,8 @@ public class HangManViewer extends JFrame {
         // Letter has been guessed correctly
         if(state == 4) {
             // Add letters at the index multiplied by start_X to get right coordinate
+            g.setColor(Color.BLACK);
+            g.fillRect(450, 300, 700, 300);
             g.setColor(Color.ORANGE);
             g.drawString(h.getDisplayString(), START_X, START_Y);
             //g.drawString(h.getGuess(), START_X + (h.getGuessIndex() * BUFFER_LENGTH), START_Y);
