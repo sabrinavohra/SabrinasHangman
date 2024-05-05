@@ -37,6 +37,9 @@ public class Body {
         body[5] = new ImageIcon("Resources/rightArm.png").getImage();
     }
 
+    public int getCurrent() {
+        return current;
+    }
     public void drawBody(Graphics g) {
         if (current == 0) {
             g.drawImage(body[current], HEAD_X, HEAD_Y, HEAD_WIDTH, HEAD_HEIGHT, front);

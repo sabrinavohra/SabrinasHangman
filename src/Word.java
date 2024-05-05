@@ -16,7 +16,7 @@ public class Word {
         Word.loadDictionary();
         int whichWord = (int)(Math.random() * MAX_WORDS);
         word = DICTIONARY[whichWord];
-        //word = "halowelen";
+        word = "square";
         numLetters = word.length();
     }
 

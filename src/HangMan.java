@@ -38,7 +38,7 @@ public class HangMan implements KeyListener {
         displayString = "";
         where = 0;
         for(int i = 0; i < theWord.getWord().length(); i++) {
-            displayString += "_  ";
+            displayString += "_ ";
         }
         front.repaint();
     }
@@ -110,6 +110,7 @@ public class HangMan implements KeyListener {
                     state = 4;
                     in = true;
                     this.numLetters--;
+                    isWon();
                     where = i;
                 }
             }
