@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Word {
-    private static final int MAX_WORDS = 131;
+    private static final int MAX_WORDS = 132;
     public static final String[] DICTIONARY = new String[MAX_WORDS];
     private int numLetters;
     private String word;
@@ -16,7 +16,6 @@ public class Word {
         Word.loadDictionary();
         int whichWord = (int)(Math.random() * MAX_WORDS);
         word = DICTIONARY[whichWord];
-        word = "square";
         numLetters = word.length();
     }
 
