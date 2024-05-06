@@ -8,7 +8,7 @@ public class HangManViewer extends JFrame {
             WINDOW_HEIGHT = 645,
             BUFFER_LENGTH = 50,
             UNDERLINE_LENGTH = 20,
-            START_X = 500,
+            START_X = 600,
             START_Y = 400;
     private HangMan h;
     private Word theWord;
@@ -108,6 +108,10 @@ public class HangManViewer extends JFrame {
         if(state == 8) {
             g.setColor(Color.WHITE);
             g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+        }
+
+        if(state == 10) {
+
         }
         if(toDraw.getCurrent() == 6) {
             g.setColor(Color.RED);

@@ -109,23 +109,25 @@ public class HangMan implements KeyListener {
                     }
                     else {
                         displayString = displayString.substring(0, i) + letter + displayString.substring(i + 1);
-                        System.out.println(i);
-                        System.out.println(theWord.getWordwithSpaces());
                     }
                     state = 4;
                     in = true;
                     this.numLetters--;
                     isWon();
-                    where = i;
                 }
             }
             if(!in) {
                 state = 5;
-                wrongGuesses += "    " + letter;
+                wrongGuesses += "  " + letter;
             }
             front.repaint();
         }
     }
+
+//    public void checkSeven() {
+//        state = 10;
+//        front.repaint();
+//    }
 //    public void checkLetter(String letter) {
 //        boolean in = false;
 //        for(int i = 0; i < guessed.size(); i++) {
@@ -169,6 +171,9 @@ public class HangMan implements KeyListener {
                 state = 1;
                 front.repaint();
                 break;
+//            case KeyEvent.VK_7:
+//                checkSeven();
+//                break;
 //            case KeyEvent.VK_A:
 //                state = 5;
 //                front.repaint();
