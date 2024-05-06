@@ -38,7 +38,7 @@ public class HangMan implements KeyListener {
         displayString = "";
         where = 0;
         for(int i = 0; i < theWord.getWord().length(); i++) {
-            displayString += "_ ";
+            displayString += "_";
         }
         front.repaint();
     }
@@ -72,7 +72,11 @@ public class HangMan implements KeyListener {
     }
 
     public String getDisplayString() {
-        return displayString;
+        String newDisplay = "";
+        for(int i = 0; i < displayString.length(); i++) {
+            newDisplay += " " + displayString.charAt(i);
+        }
+        return newDisplay;
     }
     public int getWhere() {
         return where;
@@ -105,7 +109,8 @@ public class HangMan implements KeyListener {
                     }
                     else {
                         displayString = displayString.substring(0, i) + letter + displayString.substring(i + 1);
-                        System.out.println(displayString);
+                        System.out.println(i);
+                        System.out.println(theWord.getWordwithSpaces());
                     }
                     state = 4;
                     in = true;
@@ -173,8 +178,7 @@ public class HangMan implements KeyListener {
 //                front.repaint();
 //                break;
             default:
-                Character c = e.getKeyChar();
-                String letter = String.valueOf(c);
+                String letter = String.valueOf(e.getKeyChar());
                 checkLetter(letter);
                 front.repaint();
                 break;

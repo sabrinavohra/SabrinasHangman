@@ -11,11 +11,16 @@ public class Word {
     private String foundLetters;
     private String lostLetters;
     private String guessedLetters;
+    private String wordwithSpaces;
 
     public Word() {
         Word.loadDictionary();
         int whichWord = (int)(Math.random() * MAX_WORDS);
         word = DICTIONARY[whichWord];
+        wordwithSpaces = "";
+        for(int i = 0; i < word.length(); i++) {
+            wordwithSpaces += word.substring(i, i  + 1) + " ";
+        }
         numLetters = word.length();
     }
 
@@ -23,6 +28,9 @@ public class Word {
         return word;
     }
 
+    public String getWordwithSpaces () {
+        return wordwithSpaces;
+    }
     public int getNumLetters() {
         return numLetters;
     }
