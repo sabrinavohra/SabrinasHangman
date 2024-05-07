@@ -8,19 +8,11 @@ public class Word {
     public static final String[] DICTIONARY = new String[MAX_WORDS];
     private int numLetters;
     private String word;
-    private String foundLetters;
-    private String lostLetters;
-    private String guessedLetters;
-    private String wordwithSpaces;
 
     public Word() {
         Word.loadDictionary();
         int whichWord = (int)(Math.random() * MAX_WORDS);
         word = DICTIONARY[whichWord];
-        wordwithSpaces = "";
-        for(int i = 0; i < word.length(); i++) {
-            wordwithSpaces += word.substring(i, i  + 1) + " ";
-        }
         numLetters = word.length();
     }
 
@@ -28,23 +20,10 @@ public class Word {
         return word;
     }
 
-    public String getWordwithSpaces () {
-        return wordwithSpaces;
-    }
     public int getNumLetters() {
         return numLetters;
     }
-    // Method should figure out if letter has been found (repeating letters???)
-    public boolean isFoundLetter(int index) {
-        for(int i = 0; i < foundLetters.length(); i++) {
-            if(foundLetters.substring(i, i + 1).equals(index)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
-    // Code from SpellingBee, but with different dictionary
     public static void loadDictionary() {
         Scanner s;
         File dictionaryFile = new File("Resources/myDictionary.txt");
