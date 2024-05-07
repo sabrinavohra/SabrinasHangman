@@ -34,6 +34,7 @@ public class HangMan implements KeyListener {
         Word word1 = new Word();
     }
 
+    public int getState() { return state; }
     public Word getTheWord() {
         return theWord;
     }
