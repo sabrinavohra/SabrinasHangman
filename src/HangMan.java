@@ -37,16 +37,9 @@ public class HangMan implements KeyListener {
     public Word getTheWord() {
         return theWord;
     }
-    public int getState() { return state; }
-    public String getGuess() {
-        return guess;
-    }
-    public HangManViewer getFront() {
-        return front;
-    }
-    public ArrayList<String> getGuessed () {
-        return guessed;
-    }
+    public String getGuess() { return guess; }
+    public HangManViewer getFront() { return front; }
+    public ArrayList<String> getGuessed () { return guessed;}
     public String getWrongGuesses() {
         return wrongGuesses;
     }
@@ -103,11 +96,6 @@ public class HangMan implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        // Research how to get Java letter from key code without finding every single one
-        // Method that takes in char for which letter entered
-        // Check if char is in mystery word
-        // If it is: update
-        // Keep track of mystery word and display string
     }
 
     @Override
@@ -127,12 +115,10 @@ public class HangMan implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-
     }
 
     public static void main(String[] args)
     {
-        // Creates and plays Game
         HangMan newH = new HangMan();
     }
 }

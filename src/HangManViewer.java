@@ -1,7 +1,6 @@
 // Sabrina Vohra
 import javax.swing.*;
 import java.awt.*;
-import java.sql.SQLOutput;
 
 public class HangManViewer extends JFrame {
     public static final int WINDOW_WIDTH = 1165,
@@ -60,12 +59,6 @@ public class HangManViewer extends JFrame {
             g.setColor(Color.WHITE);
             g.drawString("the word was: " + theWord.getWord(),  WINDOW_WIDTH / 6,  WINDOW_HEIGHT / 3);
         }
-        if(state == 3) {
-            g.setColor(Color.BLACK);
-            g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-            g.setColor(Color.GREEN);
-            g.drawString("Enter your guess: ", WINDOW_WIDTH / 3, WINDOW_HEIGHT / 2);
-        }
         // Letter has been guessed correctly
         if(state == 4) {
             g.setColor(Color.BLACK);
@@ -79,10 +72,6 @@ public class HangManViewer extends JFrame {
             toDraw.drawBody(g);
             g.setColor(Color.GREEN);
             g.drawString(h.getWrongGuesses(), 75, 550);
-        }
-        if(state == 8) {
-            g.setColor(Color.WHITE);
-            g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
         }
         if(toDraw.getCurrent() == 6) {
             g.setColor(Color.RED);
