@@ -69,7 +69,6 @@ public class HangManViewer extends JFrame {
         }
         // Letter has been guessed incorrectly
         if (state == 5) {
-            System.out.println("state = 5");
             toDraw.drawBody(g);
             g.setColor(Color.GREEN);
             g.drawString(h.getWrongGuesses(), 75, 550);
