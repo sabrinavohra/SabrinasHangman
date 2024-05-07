@@ -1,4 +1,5 @@
 // Sabrina Vohra
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -11,7 +12,7 @@ public class Word {
 
     public Word() {
         Word.loadDictionary();
-        int whichWord = (int)(Math.random() * MAX_WORDS);
+        int whichWord = (int) (Math.random() * MAX_WORDS);
         word = DICTIONARY[whichWord];
         numLetters = word.length();
     }
@@ -34,7 +35,7 @@ public class Word {
             return;
         }
         int i = 0;
-        while(s.hasNextLine()) {
+        while (s.hasNextLine()) {
             DICTIONARY[i++] = s.nextLine();
         }
     }
