@@ -54,7 +54,7 @@ public class Body {
             g.drawImage(body[current], LEFT_LEG_X, LEFT_LEG_Y, LEFT_LEG_WIDTH, LEFT_LEG_HEIGHT, front);
         }
         if (current == 3) {
-            g.drawImage(body[current], 140, 360, 58, 125, front);
+            g.drawImage(body[current], RIGHT_LEG_X, 360, 58, 125, front);
         }
         if (current == 4) {
             g.drawImage(body[current], 40, 205, 62, 84, front);

@@ -12,14 +12,16 @@ public class HangManViewer extends JFrame {
             START_Y = 400;
     private HangMan h;
     private Word theWord;
-    private Image intro;
+    private Image[] screens;
     private Body toDraw;
 
     public HangManViewer(HangMan h) {
         toDraw = new Body(h);
         this.h = h;
         theWord = h.getTheWord();
-        intro = new ImageIcon("Resources/intro.png").getImage();
+        screens = new Image[3];
+        screens[0] = new ImageIcon("Resources/introScreen.png").getImage();
+        screens[1] = new ImageIcon("Resources/winScreen.png").getImage();
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         this.setTitle("Halloween Hangman");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -34,7 +36,7 @@ public class HangManViewer extends JFrame {
         Font b = new Font("TimesRoman Bold", Font.BOLD, 30);
         g.setFont(b);
         if (state == 0) {
-            g.drawImage(intro, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, this);
+            g.drawImage(screens[0], 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, this);
         }
         if (state == 1) {
             g.setColor(Color.BLACK);
@@ -52,13 +54,10 @@ public class HangManViewer extends JFrame {
             g.fillRect(50, 500, 300, 100);
         }
         if (state == 2) {
-            g.setColor(Color.GREEN);
-            g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-            g.setColor(Color.BLACK);
             g.setFont(a);
-            g.drawString("YOU WIN!", WINDOW_WIDTH / 3, WINDOW_HEIGHT / 2);
             g.setColor(Color.WHITE);
-            g.drawString("the word was: " + theWord.getWord(), WINDOW_WIDTH / 6, WINDOW_HEIGHT / 3);
+            g.drawImage(screens[1], 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, this);
+            g.drawString(theWord.getWord(), 550, 290);
         }
         // Letter has been guessed correctly
         if (state == 4) {
