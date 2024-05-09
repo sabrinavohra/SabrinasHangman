@@ -5,8 +5,11 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 public class HangMan implements KeyListener {
-
+    public static final int INTRO = 0;
+    public static final int PLAYING = 1;
+    public static final int HAS_WON = 2;
     public static final int GUESS_CORRECT = 3;
+    public static final int GUESS_INCORRECT = 4;
     private final Word theWord;
     private HangManViewer front;
     private ArrayList<String> guessed;
@@ -21,7 +24,7 @@ public class HangMan implements KeyListener {
         front = new HangManViewer(this);
         front.addKeyListener(this);
         this.numLetters = theWord.getNumLetters();
-        state = 0;
+        state = INTRO;
         guessed = new ArrayList<>();
         wrongGuesses = "";
         displayString = "";
@@ -57,7 +60,7 @@ public class HangMan implements KeyListener {
 
     public void isWon() {
         if (numLetters == 0) {
-            state = 2;
+            state = HAS_WON;
             front.repaint();
         }
     }
@@ -90,7 +93,7 @@ public class HangMan implements KeyListener {
                 }
             }
             if (!in) {
-                state = 4;
+                state = GUESS_INCORRECT;
                 wrongGuesses += "  " + letter;
             }
             front.repaint();
@@ -105,7 +108,7 @@ public class HangMan implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_ENTER:
-                state = 1;
+                state = PLAYING;
                 front.repaint();
                 break;
             case KeyEvent.VK_9:

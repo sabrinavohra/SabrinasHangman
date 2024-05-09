@@ -31,6 +31,10 @@ public class Body {
             RIGHT_ARM_Y = 255,
             RIGHT_ARM_WIDTH = 45,
             RIGHT_ARM_HEIGHT = 93;
+    private static int[] xs;
+    private static int[] ys;
+    private static int[] widths;
+    private static int[] heights;
     private Image[] body;
     private int current;
     private HangManViewer front;
@@ -40,6 +44,34 @@ public class Body {
         front = h.getFront();
         // Sets current body part to the first
         current = 0;
+        xs = new int[6];
+        xs[0] = HEAD_X;
+        xs[1] = TORSO_X;
+        xs[2] = LEFT_LEG_X;
+        xs[3] = RIGHT_LEG_X;
+        xs[4] = LEFT_ARM_X;
+        xs[5] = RIGHT_ARM_X;
+        ys = new int[6];
+        ys[0] = HEAD_Y;
+        ys[1] = TORSO_Y;
+        ys[2] = LEFT_LEG_Y;
+        ys[3] = RIGHT_LEG_Y;
+        ys[4] = LEFT_ARM_Y;
+        ys[5] = RIGHT_ARM_Y;
+        widths = new int[6];
+        widths[0] = HEAD_WIDTH;
+        widths[1] = TORSO_WIDTH;
+        widths[2] = LEFT_LEG_WIDTH;
+        widths[3] = RIGHT_LEG_WIDTH;
+        widths[4] = LEFT_ARM_WIDTH;
+        widths[5] = RIGHT_ARM_WIDTH;
+        heights = new int[6];
+        heights[0] = HEAD_HEIGHT;
+        heights[1] = TORSO_HEIGHT;
+        heights[2] = LEFT_LEG_HEIGHT;
+        heights[3] = RIGHT_LEG_HEIGHT;
+        heights[4] = LEFT_ARM_HEIGHT;
+        heights[5] = RIGHT_ARM_HEIGHT;
         // Initializes each body part
         body = new Image[6];
         body[0] = new ImageIcon("Resources/head.png").getImage();
@@ -57,24 +89,7 @@ public class Body {
 
     // Draws each body part depending on which ones have already been drawn
     public void drawBody(Graphics g) {
-        if (current == 0) {
-            g.drawImage(body[current], HEAD_X, HEAD_Y, HEAD_WIDTH, HEAD_HEIGHT, front);
-        }
-        if (current == 1) {
-            g.drawImage(body[current], TORSO_X, TORSO_Y, TORSO_WIDTH, TORSO_HEIGHT, front);
-        }
-        if (current == 2) {
-            g.drawImage(body[current], LEFT_LEG_X, LEFT_LEG_Y, LEFT_LEG_WIDTH, LEFT_LEG_HEIGHT, front);
-        }
-        if (current == 3) {
-            g.drawImage(body[current], RIGHT_LEG_X, RIGHT_LEG_Y, RIGHT_LEG_WIDTH, RIGHT_LEG_HEIGHT, front);
-        }
-        if (current == 4) {
-            g.drawImage(body[current], LEFT_ARM_X, LEFT_ARM_Y, LEFT_ARM_WIDTH, LEFT_ARM_HEIGHT, front);
-        }
-        if (current == 5) {
-            g.drawImage(body[current], RIGHT_ARM_X, RIGHT_ARM_Y, RIGHT_ARM_WIDTH, RIGHT_ARM_HEIGHT, front);
-        }
+        g.drawImage(body[current], xs[current], ys[current], widths[current], heights[current], front);
         current++;
     }
 }
