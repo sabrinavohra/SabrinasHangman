@@ -120,6 +120,8 @@ public class HangMan implements KeyListener {
                 state = 1;
                 front.repaint();
                 break;
+            case KeyEvent.VK_9:
+                HangMan newH = new HangMan();
             default:
                 String letter = String.valueOf(e.getKeyChar());
                 checkLetter(letter);
