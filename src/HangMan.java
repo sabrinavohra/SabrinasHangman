@@ -20,7 +20,7 @@ public class HangMan implements KeyListener {
         front.addKeyListener(this);
         this.numLetters = theWord.getNumLetters();
         state = 0;
-        guessed = new ArrayList<String>();
+        guessed = new ArrayList<>();
         wrongGuesses = "";
         displayString = "";
         for (int i = 0; i < theWord.getWord().length(); i++) {
@@ -43,16 +43,8 @@ public class HangMan implements KeyListener {
         return theWord;
     }
 
-    public String getGuess() {
-        return guess;
-    }
-
     public HangManViewer getFront() {
         return front;
-    }
-
-    public ArrayList<String> getGuessed() {
-        return guessed;
     }
 
     public String getWrongGuesses() {
