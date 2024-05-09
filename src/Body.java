@@ -3,7 +3,10 @@
 import javax.swing.*;
 import java.awt.*;
 
+// Body class to keep track of and draw body parts
 public class Body {
+    // Declares instance variables for Body class
+    // Initializes size and location of each body part
     public static final int HEAD_X = 100,
             HEAD_Y = 150,
             HEAD_WIDTH = 85,
@@ -28,14 +31,16 @@ public class Body {
             RIGHT_ARM_Y = 255,
             RIGHT_ARM_WIDTH = 45,
             RIGHT_ARM_HEIGHT = 93;
-
     private Image[] body;
     private int current;
     private HangManViewer front;
 
     public Body(HangMan h) {
+        // Initializes instanceof HangManViewer
         front = h.getFront();
+        // Sets current body part to the first
         current = 0;
+        // Initializes each body part
         body = new Image[6];
         body[0] = new ImageIcon("Resources/head.png").getImage();
         body[1] = new ImageIcon("Resources/torso.png").getImage();
@@ -45,10 +50,12 @@ public class Body {
         body[5] = new ImageIcon("Resources/rightArm.png").getImage();
     }
 
+    // Returns current state / which body part to print
     public int getCurrent() {
         return current;
     }
 
+    // Draws each body part depending on which ones have already been drawn
     public void drawBody(Graphics g) {
         if (current == 0) {
             g.drawImage(body[current], HEAD_X, HEAD_Y, HEAD_WIDTH, HEAD_HEIGHT, front);
