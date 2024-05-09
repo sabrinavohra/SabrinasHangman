@@ -31,19 +31,25 @@ public class Body {
             RIGHT_ARM_Y = 255,
             RIGHT_ARM_WIDTH = 45,
             RIGHT_ARM_HEIGHT = 93;
+    // Creates Arrays to hold the given information about each body part
+    // Allows for more efficient drawBody() method with only one call to drawImage()
     private static int[] xs;
     private static int[] ys;
     private static int[] widths;
     private static int[] heights;
+    // Holds the images of each body part
     private Image[] body;
+    // Holds the current body part
     private int current;
     private HangManViewer front;
 
+    // Constructor for Body class
     public Body(HangMan h) {
-        // Initializes instanceof HangManViewer
+        // Initializes instance of HangManViewer
         front = h.getFront();
         // Sets current body part to the first
         current = 0;
+        // Implements each array to hold given information
         xs = new int[6];
         xs[0] = HEAD_X;
         xs[1] = TORSO_X;
@@ -72,7 +78,7 @@ public class Body {
         heights[3] = RIGHT_LEG_HEIGHT;
         heights[4] = LEFT_ARM_HEIGHT;
         heights[5] = RIGHT_ARM_HEIGHT;
-        // Initializes each body part
+        // Initializes each body part's image
         body = new Image[6];
         body[0] = new ImageIcon("Resources/head.png").getImage();
         body[1] = new ImageIcon("Resources/torso.png").getImage();
@@ -87,9 +93,10 @@ public class Body {
         return current;
     }
 
-    // Draws each body part depending on which ones have already been drawn
+    // Draws each body part using current to find which body part needs to be drawn next
     public void drawBody(Graphics g) {
         g.drawImage(body[current], xs[current], ys[current], widths[current], heights[current], front);
+        // Adds one to current so next body part will be the next in the sequence
         current++;
     }
 }
