@@ -12,7 +12,7 @@ public class HangManViewer extends JFrame {
             START_Y = 400,
             WORD_PRINT_X = 550,
             WORD_PRINT_Y = 290;
-    public static final Color BOX_COLOR  = new Color(98, 57, 115);
+    public static final Color BOX_COLOR = new Color(98, 57, 115);
     public static final Font BIG = new Font("TimesRoman Bold", Font.BOLD, 50);
     public static final Font SMALL = new Font("TimesRoman Bold", Font.BOLD, 30);
     // Initializes instance variables for the front end
@@ -82,7 +82,7 @@ public class HangManViewer extends JFrame {
             g.setColor(Color.GREEN);
             g.drawString(h.getWrongGuesses(), 75, 550);
         }
-        // Paints end screen if user lost / ran out of body parts
+        // Paints end screen if user lost (ran out of body parts)
         if (toDraw.getCurrent() == 6) {
             g.drawImage(screens[2], 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, this);
             g.setColor(Color.LIGHT_GRAY);

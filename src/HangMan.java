@@ -80,8 +80,8 @@ public class HangMan implements KeyListener {
 
     // Checks to see if a letter has already been guessed
     public boolean checkGuessedLetter() {
-        for(String s: guessed) {
-            if(guess.equals(s)) {
+        for (String s : guessed) {
+            if (guess.equals(s)) {
                 return false;
             }
         }
@@ -103,8 +103,7 @@ public class HangMan implements KeyListener {
                     // Updates displayString if the letter matches
                     if (i == 0) {
                         displayString = letter + displayString.substring(i + 1);
-                    }
-                    else {
+                    } else {
                         displayString = displayString.substring(0, i) + letter + displayString.substring(i + 1);
                     }
                     state = GUESS_CORRECT;
