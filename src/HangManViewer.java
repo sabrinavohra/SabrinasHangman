@@ -22,7 +22,7 @@ public class HangManViewer extends JFrame {
             BOX1_Y = 500,
             BOX1_WIDTH = 300,
             BOX1_HEIGHT = 100,
-            BOX2_X =  450,
+            BOX2_X = 450,
             BOX2_Y = 300,
             BOX2_WIDTH = 700,
             BOX2_HEIGHT = 300;

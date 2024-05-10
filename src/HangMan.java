@@ -135,19 +135,19 @@ public class HangMan implements KeyListener {
                 HangMan newH = new HangMan();
                 break;
             case KeyEvent.VK_ENTER:
-                if(state != HAS_WON) {
+                if (state != HAS_WON) {
                     state = PLAYING;
                     front.repaint();
                     break;
                 }
             default:
                 // In the case that any other key is guessed, takes the value and checks if it's in the word
-                if(state != HAS_WON) {
+                if (state != HAS_WON) {
                     String letter = String.valueOf(e.getKeyChar());
                     checkLetter(letter);
                     break;
                 }
-            // Calls a new game if user pressed 9
+                // Calls a new game if user pressed 9
         }
     }
 
