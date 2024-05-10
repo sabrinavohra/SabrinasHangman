@@ -11,11 +11,21 @@ public class HangManViewer extends JFrame {
             START_X = 600,
             START_Y = 400,
             WORD_PRINT_X = 550,
-            WORD_PRINT_Y = 290;
+            WORD_PRINT_Y = 290,
+            PRINT_WRONG_GUESS_X = 75,
+            PRINT_WRONG_GUESS_Y = 550;
     public static final Color BOX_COLOR = new Color(98, 57, 115);
-    public static final Font BIG = new Font("TimesRoman Bold", Font.BOLD, 50);
-    public static final Font SMALL = new Font("TimesRoman Bold", Font.BOLD, 30);
+    public static final Font BIG = new Font("TimesRoman Bold", Font.BOLD, 50),
+            SMALL = new Font("TimesRoman Bold", Font.BOLD, 30);
     // Initializes instance variables for the front end
+    private static final int BOX1_X = 50,
+            BOX1_Y = 500,
+            BOX1_WIDTH = 300,
+            BOX1_HEIGHT = 100,
+            BOX2_X =  450,
+            BOX2_Y = 300,
+            BOX2_WIDTH = 700,
+            BOX2_HEIGHT = 300;
     private HangMan h;
     private Word theWord;
     private Image[] screens;
@@ -59,7 +69,7 @@ public class HangManViewer extends JFrame {
             g.drawString(h.getDisplayString(), START_X, START_Y);
             // Draws box for incorrect guesses
             g.setColor(BOX_COLOR);
-            g.fillRect(50, 500, 300, 100);
+            g.fillRect(BOX1_X, BOX1_Y, BOX1_WIDTH, BOX1_HEIGHT);
         }
         // Paints winning screen if user has won
         if (state == HangMan.HAS_WON) {
@@ -67,12 +77,12 @@ public class HangManViewer extends JFrame {
             // Prints word
             g.setFont(BIG);
             g.setColor(Color.LIGHT_GRAY);
-            g.drawString(theWord.getWord(), 550, 290);
+            g.drawString(theWord.getWord(), WORD_PRINT_X, WORD_PRINT_Y);
         }
         // Paints new displayString onto screen if guess was correct
         if (state == HangMan.GUESS_CORRECT) {
             g.setColor(Color.BLACK);
-            g.fillRect(450, 300, 700, 300);
+            g.fillRect(BOX2_X, BOX2_Y, BOX2_WIDTH, BOX2_HEIGHT);
             g.setColor(Color.ORANGE);
             g.drawString(h.getDisplayString(), START_X, START_Y);
         }
@@ -80,7 +90,7 @@ public class HangManViewer extends JFrame {
         if (state == HangMan.GUESS_INCORRECT) {
             toDraw.drawBody(g);
             g.setColor(Color.GREEN);
-            g.drawString(h.getWrongGuesses(), 75, 550);
+            g.drawString(h.getWrongGuesses(), PRINT_WRONG_GUESS_X, PRINT_WRONG_GUESS_Y);
         }
         // Paints end screen if user lost (ran out of body parts)
         if (toDraw.getCurrent() == 6) {
