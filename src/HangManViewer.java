@@ -69,17 +69,20 @@ public class HangManViewer extends JFrame {
             g.setColor(Color.LIGHT_GRAY);
             g.drawString(theWord.getWord(), 550, 290);
         }
+        // Paints new displayString onto screen if guess was correct
         if (state == HangMan.GUESS_CORRECT) {
             g.setColor(Color.BLACK);
             g.fillRect(450, 300, 700, 300);
             g.setColor(Color.ORANGE);
             g.drawString(h.getDisplayString(), START_X, START_Y);
         }
+        // Paints new body part and wrong guess onto screen
         if (state == HangMan.GUESS_INCORRECT) {
             toDraw.drawBody(g);
             g.setColor(Color.GREEN);
             g.drawString(h.getWrongGuesses(), 75, 550);
         }
+        // Paints end screen if user lost / ran out of body parts
         if (toDraw.getCurrent() == 6) {
             g.drawImage(screens[2], 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, this);
             g.setColor(Color.LIGHT_GRAY);
